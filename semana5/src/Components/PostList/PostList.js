@@ -16,7 +16,7 @@ export default class PostList extends Component {
 	render() {
 		const { posts } = this.props;
 		const cardsPost = posts.map((post, index) => (
-			<div className='card-container'>
+			<div key={post.id} className='card-container'>
 				<div className='post-id'>
 					<h2>{post.id}</h2>
 				</div>
