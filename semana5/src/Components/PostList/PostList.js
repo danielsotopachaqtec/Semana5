@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './PostList.css';
+// import './PostList.css';
+import { styles } from './PostListStyles';
 
 export default class PostList extends Component {
 	constructor(props) {
@@ -16,21 +17,21 @@ export default class PostList extends Component {
 	render() {
 		const { posts } = this.props;
 		const cardsPost = posts.map((post, index) => (
-			<div key={post.id} className='card-container'>
-				<div className='post-id'>
-					<h2>{post.id}</h2>
+			<div key={post.id} style={styles.cardContainer}>
+				<div style={styles.postId}>
+					<h2 style={styles.postIdText}>{post.id}</h2>
 				</div>
-				<div className='post-description'>
-					<div className='post-title'>
-						<h2>{post.title}</h2>
+				<div style={styles.postDescription}>
+					<div>
+						<h2 style={styles.postTitleText}>{post.title}</h2>
 					</div>
-					<div className='post-body'>
-						<p>{post.body}</p>
+					<div>
+						<p style={styles.postDescriptionText}>{post.body}</p>
 					</div>
 				</div>
 			</div>
 		));
 		console.log('posts PostList', posts);
-		return <div className='container-list'>{cardsPost}</div>;
+		return <div style={styles.containerList}>{cardsPost}</div>;
 	}
 }
