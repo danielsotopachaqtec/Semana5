@@ -5,6 +5,8 @@ import Loading from './assets/icons/loading.gif';
 import { Welcome } from './Components/Welcome/Welcome';
 import PostList from './Components/PostList/PostList';
 import { Modal } from './Components/Modal/Modal';
+import Posts from './Components/Posts/Posts';
+import PostOftheMonthProvider from './Components/Provider/PostOftheMonthProvider';
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -13,6 +15,7 @@ class App extends Component {
 			posts: [],
 			description: '',
 			showModal: true,
+			post: null,
 		};
 	}
 	componentDidMount() {
@@ -46,7 +49,7 @@ class App extends Component {
 		});
 	};
 	render() {
-		const { posts, postId, description, showModal } = this.state;
+		const { posts, postId, description, showModal, post } = this.state;
 		return (
 			<div className='App'>
 				{/* <header className="App-header">
@@ -64,6 +67,9 @@ class App extends Component {
         </a>
       </header> */}
 				<Welcome />
+				<PostOftheMonthProvider>
+					<Posts />
+				</PostOftheMonthProvider>
 				<PostList posts={posts} />
 				<Modal visible={showModal} closeModal={this.modalHandler}>
 					<div className='loading'>
