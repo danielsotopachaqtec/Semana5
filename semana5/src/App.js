@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import { ReactComponent as BellIcon } from './assets/icons/bell.svg';
 import Loading from './assets/icons/loading.gif';
 import { Welcome } from './Components/Welcome/Welcome';
 import PostList from './Components/PostList/PostList';
 import { Modal } from './Components/Modal/Modal';
 import Posts from './Components/Posts/Posts';
 import PostOftheMonthProvider from './Components/Provider/PostOftheMonthProvider';
+import { Navbar } from './Components/Navbar/Navbar';
+import { NavItem } from './Components/NavItem/NavItem';
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -52,20 +55,9 @@ class App extends Component {
 		const { posts, postId, description, showModal, post } = this.state;
 		return (
 			<div className='App'>
-				{/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+				<Navbar>
+					<NavItem icon={<BellIcon />} />
+				</Navbar>
 				<Welcome />
 				<PostOftheMonthProvider>
 					<Posts />

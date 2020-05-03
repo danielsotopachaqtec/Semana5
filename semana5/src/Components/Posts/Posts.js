@@ -7,12 +7,16 @@ const Posts = () => {
 			{(posts) =>
 				posts && (
 					<>
+						{console.log('posts', posts)}
 						<h2>Publicación del Mes</h2>
-						<div>
-							<h2>{posts.id}</h2>
-							<p>{posts.title}</p>
-							<p>{posts.body}</p>
-						</div>
+						{posts.map((post, index) => (
+							<div key={post.id}>
+								<h2>{post.id}</h2>
+								<p>{post.name}</p>
+								<p>{post.email}</p>
+								<p>{post.body}</p>
+							</div>
+						))}
 					</>
 				)
 			}

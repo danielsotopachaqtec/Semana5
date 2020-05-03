@@ -5,18 +5,19 @@ export default class PostOfTheMonthProvider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			post: null,
+			post: [],
 		};
 	}
 
 	componentDidMount() {
-		fetch('https://jsonplaceholder.typicode.com/posts/1')
+		fetch('https://jsonplaceholder.typicode.com/comments?postId=1')
 			.then((response) => response.json())
 			.then((post) =>
 				this.setState({
 					post,
 				})
-			);
+			)
+			.catch((error) => console.log('error', error));
 	}
 	render() {
 		const { post } = this.state;

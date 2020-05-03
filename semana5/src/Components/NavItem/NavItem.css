@@ -1,0 +1,6 @@
+.nav-item {
+	width: calc(var(--nav-size) * 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
