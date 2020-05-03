@@ -10,7 +10,7 @@
 
 # production
 /semana5/build
-
+.xd
 # misc
 .DS_Store
 .env.local
